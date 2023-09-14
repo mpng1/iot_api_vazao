@@ -1,0 +1,14 @@
+# SII API
+
+Endpoints disponíveis:
+
+GET
+
+/medicao
+/modelomedidor
+/pontodecoleta
+
+POST
+
+/modelomedidor
+/pontodecoleta
