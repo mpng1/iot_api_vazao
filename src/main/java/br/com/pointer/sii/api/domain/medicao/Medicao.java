@@ -8,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -30,6 +29,10 @@ public class Medicao {
 	private Double valor_metros_cubicos;
 	private Integer ponto_de_coleta_id;
 	private Integer cliente;
+	
+	public Medicao () {
+		
+	}
 	
 
 	public Long getId() {

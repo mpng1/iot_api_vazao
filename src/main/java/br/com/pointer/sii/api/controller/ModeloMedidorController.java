@@ -22,12 +22,6 @@ import br.com.pointer.sii.api.domain.modelomedidor.DadosListagemModeloMedidor;
 import br.com.pointer.sii.api.domain.modelomedidor.ModeloMedidor;
 import br.com.pointer.sii.api.domain.modelomedidor.ModeloMedidorRepository;
 import br.com.pointer.sii.api.domain.modelomedidor.ModeloMedidorService;
-import br.com.pointer.sii.api.domain.pontodecoleta.DadosCadastroPontoDeColeta;
-import br.com.pointer.sii.api.domain.pontodecoleta.DadosDetalhamentoPontoDeColeta;
-import br.com.pointer.sii.api.domain.pontodecoleta.DadosListagemPontoDeColeta;
-import br.com.pointer.sii.api.domain.pontodecoleta.PontoDeColeta;
-import br.com.pointer.sii.api.domain.pontodecoleta.PontoDeColetaRepository;
-import br.com.pointer.sii.api.domain.pontodecoleta.PontoDeColetaService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
@@ -42,6 +36,7 @@ public class ModeloMedidorController {
 	private ModeloMedidorService modeloMedidorService;
 	
 	
+	@SuppressWarnings("rawtypes")
 	@PostMapping
 	@Transactional
 	public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroModeloMedidor dados, UriComponentsBuilder uriBuilder) {
@@ -60,6 +55,7 @@ public class ModeloMedidorController {
 		return ResponseEntity.ok(page);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@PutMapping
 	@Transactional
 	public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoModeloMedidor dados) {
@@ -71,6 +67,7 @@ public class ModeloMedidorController {
 		return ResponseEntity.ok(new DadosDetalhamentoModeloMedidor(modelomedidor));
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@PutMapping("/troca")
 	@Transactional
 	public ResponseEntity atualizarSemAlterar(@RequestBody @Valid DadosAtualizacaoModeloMedidor dados) {
@@ -80,6 +77,7 @@ public class ModeloMedidorController {
 		return ResponseEntity.ok(new DadosDetalhamentoModeloMedidor(modelomedidor));
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Transactional
 	@DeleteMapping("/{id}")
 	public ResponseEntity excluir(@PathVariable Long id) {
@@ -88,6 +86,7 @@ public class ModeloMedidorController {
 		return ResponseEntity.noContent().build();
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@GetMapping("/{id}")
 	public ResponseEntity detalhar(@PathVariable Long id) {
 		var modelomedidor = repository.getReferenceById(id);

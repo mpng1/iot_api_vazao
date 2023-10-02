@@ -1,6 +1,5 @@
 package br.com.pointer.sii.api.domain.modelomedidor;
 
-import br.com.pointer.sii.api.domain.pontodecoleta.DadosCadastroPontoDeColeta;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,6 +28,14 @@ public class ModeloMedidor {
 	private String tipo;
 	private boolean ativo;
 	
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+
 	public Long getId() {
 		return id;
 	}

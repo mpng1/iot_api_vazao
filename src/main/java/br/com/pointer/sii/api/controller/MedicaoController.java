@@ -18,9 +18,6 @@ import br.com.pointer.sii.api.domain.medicao.DadosListagemMedicao;
 import br.com.pointer.sii.api.domain.medicao.Medicao;
 import br.com.pointer.sii.api.domain.medicao.MedicaoRepository;
 import br.com.pointer.sii.api.domain.modelomedidor.ModeloMedidorService;
-import br.com.pointer.sii.api.domain.pontodecoleta.DadosCadastroPontoDeColeta;
-import br.com.pointer.sii.api.domain.pontodecoleta.DadosDetalhamentoPontoDeColeta;
-import br.com.pointer.sii.api.domain.pontodecoleta.PontoDeColeta;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
@@ -44,6 +41,7 @@ public class MedicaoController {
 		return ResponseEntity.ok(page);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@PostMapping
 	@Transactional
 	public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroMedicao dados, UriComponentsBuilder uriBuilder) {

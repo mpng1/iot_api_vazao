@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.pointer.sii.api.domain.modelomedidor.DadosAtualizacaoModeloMedidor;
-import br.com.pointer.sii.api.domain.modelomedidor.DadosDetalhamentoModeloMedidor;
 import br.com.pointer.sii.api.domain.pontodecoleta.DadosAtualizacaoPontoDeColeta;
 import br.com.pointer.sii.api.domain.pontodecoleta.DadosCadastroPontoDeColeta;
 import br.com.pointer.sii.api.domain.pontodecoleta.DadosDetalhamentoPontoDeColeta;
@@ -37,6 +35,7 @@ public class PontoDeColetaController {
 	@Autowired
 	private PontoDeColetaService pontoDeColetaService;
 	
+	@SuppressWarnings("rawtypes")
 	@PostMapping
 	@Transactional
 	public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroPontoDeColeta dados, UriComponentsBuilder uriBuilder) {
@@ -58,6 +57,7 @@ public class PontoDeColetaController {
 		return ResponseEntity.ok(page);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@PutMapping
 	@Transactional
 	public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoPontoDeColeta dados) {
@@ -69,6 +69,7 @@ public class PontoDeColetaController {
 		return ResponseEntity.ok(new DadosDetalhamentoPontoDeColeta(pontodecoleta));
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@PutMapping("/troca")
 	@Transactional
 	public ResponseEntity atualizarSemAlterar(@RequestBody @Valid DadosAtualizacaoPontoDeColeta dados) {
@@ -78,6 +79,7 @@ public class PontoDeColetaController {
 		return ResponseEntity.ok(new DadosDetalhamentoPontoDeColeta(pontodecoleta));
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Transactional
 	@DeleteMapping("/{id}")
 	public ResponseEntity excluir(@PathVariable Long id) {
@@ -86,6 +88,7 @@ public class PontoDeColetaController {
 		return ResponseEntity.noContent().build();
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@GetMapping("/{id}")
 	public ResponseEntity detalhar(@PathVariable Long id) {
 		var pontodecoleta = repository.getReferenceById(id);
